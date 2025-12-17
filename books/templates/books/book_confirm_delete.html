@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Удаление книги</title>
-</head>
-<body>
-    <h1>Удалить "{{ object.title }}"?</h1>
-    <form method="post">
+{% extends "books/base.html" %}
+{% block title %}Удаление книги{% endblock %}
+{% block content %}
+<div class="card shadow-sm text-center p-4">
+    <h4>Удалить книгу "{{ object.title }}"?</h4>
+    <form method="post" class="mt-4">
         {% csrf_token %}
-        <button type="submit">Удалить</button>
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a href="{% url 'book_list' %}" class="btn btn-secondary">Отмена</a>
     </form>
-    <a href="{% url 'book_list' %}">Отмена</a>
-</body>
-</html>
+</div>
+{% endblock %}
