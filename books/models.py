@@ -22,7 +22,7 @@ class Book(models.Model):
     co_authors = models.CharField(
         max_length=255, blank=True, null=True, verbose_name="Соавторы"
     )
-    isbn = models.CharField(max_length=13, unique=True, verbose_name="ISBN")
+    isbn = models.CharField(max_length=50, unique=True)
     publication_year = models.IntegerField(verbose_name="Год публикации")
     genres = models.ManyToManyField(Genre, related_name="books", verbose_name="Жанры")
     summary = models.TextField(blank=True, null=True, verbose_name="Описание книги")
